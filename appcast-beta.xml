@@ -1,0 +1,16 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>Amanu</title>
+        <item>
+            <title>0.0.1</title>
+            <pubDate>Thu, 18 Jun 2026 16:43:25 -0700</pubDate>
+            <sparkle:channel>beta</sparkle:channel>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.1-beta.1/Amanu-0.0.1.dmg" length="7997496" type="application/octet-stream" sparkle:edSignature="BS6qUSElLMBjSWdg8wECoR17YxuURM35FVMhwyT5kG57kDFCEXqFlVVv6amujnxje7sqvjHrzxmOfpdR0IEACw=="/>
+        </item>
+    </channel>
+</rss>
