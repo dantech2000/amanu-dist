@@ -3,13 +3,13 @@
     <channel>
         <title>Amanu</title>
         <item>
-            <title>0.0.4</title>
-            <pubDate>Wed, 01 Jul 2026 14:58:21 -0700</pubDate>
-            <sparkle:version>7</sparkle:version>
-            <sparkle:shortVersionString>0.0.4</sparkle:shortVersionString>
+            <title>0.0.5</title>
+            <pubDate>Wed, 01 Jul 2026 20:19:45 -0700</pubDate>
+            <sparkle:version>8</sparkle:version>
+            <sparkle:shortVersionString>0.0.5</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.4/Amanu-0.0.4.dmg" length="8019230" type="application/octet-stream" sparkle:edSignature="8bo6rsmzSlCU6pAq8KuUamYAFyTbkwWNAv/CzdtfyRtJ0jBmnAoiprghrkQQ8fUConomiy4b2mm31V++EiyNCw=="/>
+            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.5/Amanu-0.0.5.dmg" length="8089328" type="application/octet-stream" sparkle:edSignature="dE7qQGi2SecfzB42DeTBfJPMZjEUtE5fY1KhwXXCl5O82PMZub+AtsOOcUcQG6m1mNLDlUlXsorlferw7ypcCw=="/>
         </item>
     </channel>
 </rss>
