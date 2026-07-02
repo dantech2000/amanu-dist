@@ -3,13 +3,39 @@
     <channel>
         <title>Amanu</title>
         <item>
-            <title>0.0.5</title>
-            <pubDate>Wed, 01 Jul 2026 20:19:45 -0700</pubDate>
-            <sparkle:version>8</sparkle:version>
-            <sparkle:shortVersionString>0.0.5</sparkle:shortVersionString>
+            <title>0.0.6</title>
+            <pubDate>Thu, 02 Jul 2026 04:23:19 -0700</pubDate>
+            <sparkle:version>9</sparkle:version>
+            <sparkle:shortVersionString>0.0.6</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.5/Amanu-0.0.5.dmg" length="8089328" type="application/octet-stream" sparkle:edSignature="dE7qQGi2SecfzB42DeTBfJPMZjEUtE5fY1KhwXXCl5O82PMZub+AtsOOcUcQG6m1mNLDlUlXsorlferw7ypcCw=="/>
+            <description><![CDATA[<style>
+body { margin: 12px 16px; background: #FBF8F1; color: #221E19;
+  font: 400 13px/1.5 -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif;
+  letter-spacing: -0.01em; }
+p { margin: 0 0 8px; }
+ul { margin: 0 0 8px; padding-left: 20px; }
+li { margin: 0 0 6px; }
+li::marker { color: #6E2233; }
+a { color: #6E2233; }
+strong { font-weight: 600; }
+code { font: 400 12px "SF Mono", ui-monospace, Menlo, monospace;
+  background: #F8EEF0; border-radius: 4px; padding: 1px 4px; }
+@media (prefers-color-scheme: dark) {
+  body { background: #201C17; color: #F0EBDF; }
+  li::marker { color: #B0516B; }
+  a { color: #B0516B; }
+  code { background: rgba(176, 81, 107, 0.14); }
+}
+</style>
+<ul>
+<li>Dictate in 28 European languages: pick yours under Settings &gt; Transcription &gt; Dictation language. English stays the default and works exactly as before.</li>
+<li>Refine now cleans up dictation in Spanish, French, German, Italian, Portuguese, Russian, and Polish - always in the language you spoke, never translating.</li>
+<li>For languages Refine does not support yet, cleanup pauses: your words are inserted exactly as transcribed, the Refine settings explain why they are greyed out, and your configuration is restored when you switch back.</li>
+<li>New end-to-end coverage dictating real audio in all eight supported cleanup languages against the production pipeline.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.6/Amanu-0.0.6.dmg" length="11837086" type="application/octet-stream" sparkle:edSignature="BW+E6O7rsIeGD/PI4JcetMXjlfUJxX22YwEfcRqByjs/HfxUnmrbSC44IwGXsDKwB+jX8YN+cYHcfftMlPqXDA=="/>
         </item>
     </channel>
 </rss>
