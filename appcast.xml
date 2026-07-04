@@ -3,10 +3,10 @@
     <channel>
         <title>Amanu</title>
         <item>
-            <title>0.0.6</title>
-            <pubDate>Thu, 02 Jul 2026 04:23:19 -0700</pubDate>
-            <sparkle:version>9</sparkle:version>
-            <sparkle:shortVersionString>0.0.6</sparkle:shortVersionString>
+            <title>0.0.7</title>
+            <pubDate>Sat, 04 Jul 2026 02:02:27 -0700</pubDate>
+            <sparkle:version>10</sparkle:version>
+            <sparkle:shortVersionString>0.0.7</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<style>
@@ -29,13 +29,17 @@ code { font: 400 12px "SF Mono", ui-monospace, Menlo, monospace;
 }
 </style>
 <ul>
-<li>Dictate in 28 European languages: pick yours under Settings &gt; Transcription &gt; Dictation language. English stays the default and works exactly as before.</li>
-<li>Refine now cleans up dictation in Spanish, French, German, Italian, Portuguese, Russian, and Polish - always in the language you spoke, never translating.</li>
-<li>For languages Refine does not support yet, cleanup pauses: your words are inserted exactly as transcribed, the Refine settings explain why they are greyed out, and your configuration is restored when you switch back.</li>
-<li>New end-to-end coverage dictating real audio in all eight supported cleanup languages against the production pipeline.</li>
+<li>Amanu is now a $29 one-time purchase with a full-featured 14-day free trial. The trial starts on first launch; the menu bar shows the days remaining as the end approaches, and Settings gains a License pane for entering the license key from your purchase email. Everything stays on-device: the license is verified offline and dictation never touches the network.</li>
+<li>While the speech model is still downloading, dictating now shows "Downloading speech model" with live progress in the HUD instead of appearing to hang, and the setup window's try-it step shows the download progress before inviting you to dictate.</li>
+<li>The setup window now opens centered on the screen you are working on.</li>
+<li>New floating orb HUD: pick Orb under Settings &gt; General &gt; Appearance for a small always-on-top circle you can drag anywhere on screen. Hold the hotkey and it unfurls the live waveform toward the screen center, shows your draft underneath while you speak, flashes a checkmark, and collapses back to a resting circle - without ever stealing focus or blocking clicks around it.</li>
+<li>The HUD Position control is now a single Appearance choice: Notch, Capsule, or Orb.</li>
+<li>The orb remembers where you left it, per display, and finds its way back on-screen when displays are unplugged or resolutions change.</li>
+<li>If dictation fails while using the orb (a password field has focus, the mic is unavailable), the error panel still appears and explains why.</li>
+<li>VoiceOver announces dictation progress in orb mode just as it does for the capsule.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.6/Amanu-0.0.6.dmg" length="11837086" type="application/octet-stream" sparkle:edSignature="BW+E6O7rsIeGD/PI4JcetMXjlfUJxX22YwEfcRqByjs/HfxUnmrbSC44IwGXsDKwB+jX8YN+cYHcfftMlPqXDA=="/>
+            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.7/Amanu-0.0.7.dmg" length="11895255" type="application/octet-stream" sparkle:edSignature="gtrWAunqP9q+JsWik/JwZk8hRIDMWWdCbLB3FApaCYzEd5wa7/KDfAtuf00zRS6aqmB30J1HwEL1N+xbUOCIDA=="/>
         </item>
     </channel>
 </rss>
