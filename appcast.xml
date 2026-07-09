@@ -3,10 +3,10 @@
     <channel>
         <title>Amanu</title>
         <item>
-            <title>0.0.8</title>
-            <pubDate>Sun, 05 Jul 2026 17:39:26 -0700</pubDate>
-            <sparkle:version>11</sparkle:version>
-            <sparkle:shortVersionString>0.0.8</sparkle:shortVersionString>
+            <title>0.0.9</title>
+            <pubDate>Thu, 09 Jul 2026 01:17:59 -0700</pubDate>
+            <sparkle:version>12</sparkle:version>
+            <sparkle:shortVersionString>0.0.9</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<style>
@@ -29,15 +29,13 @@ code { font: 400 12px "SF Mono", ui-monospace, Menlo, monospace;
 }
 </style>
 <ul>
-<li>Your dictionary now actually steers transcription. With the new boost model downloaded (Settings &gt; Dictionary, about 100 MB, one click), Amanu listens for your terms acoustically and corrects the transcript only where the audio truly supports it - "in video card" becomes "NVIDIA card" when NVIDIA is in your dictionary, while ordinary prose is never touched (a veto layer reverts any implausible replacement). Spoken forms double as match hints. Boosting is best-effort by design: it can never fail, slow, or block a dictation, and a "Boost my terms" toggle in the Dictionary pane turns it off instantly.</li>
-<li>Dictation latency is now protected while the live transcript preview is on: the final pass on key release runs on its own recognizer lane and no longer waits behind an in-flight preview pass, so long dictations keep their speed with the preview enabled. Preview passes also cap their work at the most recent 15 seconds of speech.</li>
-<li>Dictating while the speech model is missing now fails fast with a clear model-unavailable message instead of silently downloading ~600 MB mid-dictation. Model downloads belong to setup and the Settings panes, and outside those explicit actions Amanu's speech engine is now mechanically locked offline.</li>
-<li>New Snippets settings pane. Add text-expansion snippets - say a trigger phrase ("my address") and Amanu inserts the expansion instead. Matching ignores case and surrounding punctuation.</li>
-<li>New spoken-formatting toggles (in the Snippets pane): "Spoken punctuation" turns spoken words into marks ("period" becomes ".", "question mark" becomes "?"), and "Spoken numbers" turns number words into digits ("twenty three" becomes "23"). Both are off by default and apply to every dictation, even with Refine off.</li>
-<li>New App Rules settings pane. Override the refine style (and tone) per app on top of the built-in defaults - for example force Raw in a specific editor, or Clean with a formal tone in an app Amanu would otherwise leave alone.</li>
+<li>The menu bar's Refine flyout no longer closes by itself. Background activity (like a model download ticking progress) was invalidating the open menu; the menu now redraws only when something it actually shows changes.</li>
+<li>Quitting Amanu while a dictation's cleanup pass is still running no longer crashes on the way out. Quit now waits the fraction of a second it takes the language model to stop cleanly (bounded, so quit always stays fast).</li>
+<li>New Glass appearance for the dictation HUD. Settings &gt; General &gt; Material now offers Ink (the classic warm near-black, still the default) or Glass: the capsule, notch bar, and floating orb render in real macOS Liquid Glass that adopts your desktop's color and light like the system widgets do (on macOS 26; earlier systems get a translucent material treatment). Switching applies instantly, mid-dictation included.</li>
+<li>The waveform is smoother. Bars now move on a damped spring with a flowing, connected envelope instead of independent flicker, and the meter is denser with finer bars - speech reads as one liquid wave.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.8/Amanu-0.0.8.dmg" length="11978045" type="application/octet-stream" sparkle:edSignature="EqjeV9q1YaRKDmQKHXDhZECjEyNDkuQHSnbh+RhDsW5Qv2q7dZUynbPYBDXrYxtFmVjL5PICiJfdFxi2rP3MDw=="/>
+            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.9/Amanu-0.0.9.dmg" length="11993851" type="application/octet-stream" sparkle:edSignature="6z5qsWLJykNVOzKiJu22Yhf/PI0uXkvZvOh0PZ25YVCMdLLUomcgmdSlAK/gzny7X4uU816kJJjaVukOzHAoDQ=="/>
         </item>
     </channel>
 </rss>
