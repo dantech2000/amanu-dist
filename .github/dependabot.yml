@@ -1,0 +1,17 @@
+version: 2
+updates:
+  # Keep the GitHub Actions used by the Pages deploy workflow current.
+  # Dependabot opens a PR against gh-pages whenever a newer release ships,
+  # so runtime deprecations (e.g. Node 20 -> 24) are handled automatically
+  # instead of by hand.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+    groups:
+      # One consolidated PR for all action bumps instead of one per action.
+      github-actions:
+        patterns:
+          - "*"
