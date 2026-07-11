@@ -3,10 +3,10 @@
     <channel>
         <title>Amanu</title>
         <item>
-            <title>0.0.9</title>
-            <pubDate>Thu, 09 Jul 2026 01:17:59 -0700</pubDate>
-            <sparkle:version>12</sparkle:version>
-            <sparkle:shortVersionString>0.0.9</sparkle:shortVersionString>
+            <title>0.0.10</title>
+            <pubDate>Fri, 10 Jul 2026 20:41:23 -0700</pubDate>
+            <sparkle:version>13</sparkle:version>
+            <sparkle:shortVersionString>0.0.10</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<style>
@@ -29,13 +29,11 @@ code { font: 400 12px "SF Mono", ui-monospace, Menlo, monospace;
 }
 </style>
 <ul>
-<li>The menu bar's Refine flyout no longer closes by itself. Background activity (like a model download ticking progress) was invalidating the open menu; the menu now redraws only when something it actually shows changes.</li>
-<li>Quitting Amanu while a dictation's cleanup pass is still running no longer crashes on the way out. Quit now waits the fraction of a second it takes the language model to stop cleanly (bounded, so quit always stays fast).</li>
-<li>New Glass appearance for the dictation HUD. Settings &gt; General &gt; Material now offers Ink (the classic warm near-black, still the default) or Glass: the capsule, notch bar, and floating orb render in real macOS Liquid Glass that adopts your desktop's color and light like the system widgets do (on macOS 26; earlier systems get a translucent material treatment). Switching applies instantly, mid-dictation included.</li>
-<li>The waveform is smoother. Bars now move on a damped spring with a flowing, connected envelope instead of independent flicker, and the meter is denser with finer bars - speech reads as one liquid wave.</li>
+<li>New "Mixed" dictation language. Pick it in Settings &gt; Transcription when you speak more than one language in the same dictation - each language stays in its own script (Cyrillic Russian and Latin English side by side, instead of the embedded language being forced into the other's script). Listed right after English at the top of the language picker.</li>
+<li>Spoken email addresses now format automatically. Turn on Settings &gt; Snippets &gt; "Spoken email addresses" and dictating "admin at mycompany dot com" inserts "admin@mycompany.com" - the spoken "at" becomes @, "dot" becomes ., and the address is joined and lowercased. It only triggers on a recognized domain ending (com, org, net, io, and similar), so ordinary phrases like "we met at the park" are left alone. Off by default; works with Refine on or off.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.9/Amanu-0.0.9.dmg" length="11993851" type="application/octet-stream" sparkle:edSignature="6z5qsWLJykNVOzKiJu22Yhf/PI0uXkvZvOh0PZ25YVCMdLLUomcgmdSlAK/gzny7X4uU816kJJjaVukOzHAoDQ=="/>
+            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.10/Amanu-0.0.10.dmg" length="12001153" type="application/octet-stream" sparkle:edSignature="SRmhOJUTejmdTsdpNIaEFHGXoJQgwWFrdhNIsA+vZeBCX83ckZFZDcT3fE8EM/cQqJJKqW/XhiibeZcoKuXkCQ=="/>
         </item>
     </channel>
 </rss>
