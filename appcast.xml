@@ -3,10 +3,10 @@
     <channel>
         <title>Amanu</title>
         <item>
-            <title>0.0.11</title>
-            <pubDate>Sat, 18 Jul 2026 15:26:37 -0700</pubDate>
-            <sparkle:version>14</sparkle:version>
-            <sparkle:shortVersionString>0.0.11</sparkle:shortVersionString>
+            <title>0.0.12</title>
+            <pubDate>Sat, 25 Jul 2026 17:29:00 -0700</pubDate>
+            <sparkle:version>15</sparkle:version>
+            <sparkle:shortVersionString>0.0.12</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<style>
@@ -29,20 +29,15 @@ code { font: 400 12px "SF Mono", ui-monospace, Menlo, monospace;
 }
 </style>
 <ul>
-<li>Dictation can no longer get stuck. A hung transcription or cleanup pass used to freeze Amanu until relaunch (hotkey dead, HUD stuck on "transcribing"); both now run under generous watchdogs that recover the recognizer, show a clear error, and return to idle. Turning dictation off, re-binding the hotkey, or losing Accessibility permission mid-recording likewise now cancels the recording cleanly instead of leaving the microphone on.</li>
-<li>A failed insert never loses your words anymore. When the text cannot reach the cursor (a password field, no writable target), the transcript is saved to History in addition to the HUD's Copy button - previously it was gone for good once the error pill auto-dismissed.</li>
-<li>Switching apps while Refine is still finishing is now safe. Injection re-checks which app is actually in front at insert time, so text landing in a terminal is always terminal-sanitized and a password manager never receives an automatic paste that was planned for another app.</li>
-<li>Your clipboard survives dictation edge cases: two dictations in quick succession no longer lose what you had copied, and a paste that fails now restores your previous clipboard instead of overwriting it.</li>
-<li>Letter hotkey combos (like Control-D) no longer swallow the bare letter's key-release in other apps - a stuck-key hazard for games and anything that tracks key state.</li>
-<li>Stereo USB microphones and audio interfaces no longer clip. The gain lift that keeps dictation working during FaceTime calls now applies only when Apple voice processing is actually active, not whenever the input happens to have more than one channel.</li>
-<li>Quick, short dictations with sounds on no longer show the false "No audio from the microphone" error - the start cue's mute window could swallow a whole short recording and mimic a dead mic.</li>
-<li>The Settings mic check and dictation no longer interfere: starting one while the other is running hands the microphone over cleanly instead of cutting both off.</li>
-<li>Dictating before the speech model is downloaded now says so plainly ("Speech model isn't downloaded") instead of silently doing nothing.</li>
-<li>HUD polish: the waveform starts fresh on every dictation instead of briefly replaying the previous one's shape, result pills no longer vanish early when background activity updates mid-display, and the expanded error pill's invisible margin no longer eats clicks meant for the app beneath it.</li>
-<li>The dictionary is now capped at 1000 entries so an enormous pasted list cannot quietly slow every dictation, and the History settings now say clearly when secure storage is unavailable instead of implying entries are being kept.</li>
+<li>Dictation no longer fails silently. Some apps - Electron ones especially - accept an insert and then quietly drop it, and Amanu used to report success anyway. It now reads the field back and only says "Inserted" when your words are actually there; when it can prove nothing arrived it tries the other insertion path and, failing that, says so. The check only ever reports a failure it can prove, so a working insert is never turned into a false error.</li>
+<li>Your words now go to the app you were in when you pressed the hotkey, not whichever app happens to be in front when the text is ready. Transcription and Refine take time, and switching apps or a notification stealing focus used to redirect the sentence with no warning. If focus moved, Amanu switches back first; if it cannot get back - the app quit, or will not come forward - it inserts nowhere rather than typing into the wrong app, and names the app it could not reach.</li>
+<li>New setting, Settings &gt; Insertion &gt; "When the app changes": "Go back" (the new default) or "Follow focus" for the previous behavior, which never switches apps for you.</li>
+<li>A failed insert no longer costs you your clipboard. The dictated text is left there for a Cmd-V only when your clipboard was empty; if you had copied something, you get it back and the transcript is recovered from the error's Copy button or History. The HUD message now says "Copied instead." only when the text really is on the clipboard.</li>
+<li>First-run setup no longer throws a macOS permission dialog at you on the Accessibility step. The step opens the right System Settings pane and tells you which row to switch on, so the only buttons to press are Amanu's own.</li>
+<li>The setup window steps out of the way for the microphone prompt instead of covering it, so the request is visible the moment it appears.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.11/Amanu-0.0.11.dmg" length="12030926" type="application/octet-stream" sparkle:edSignature="Ro4Ir9MTR9PNqX3oYXnPViXjewknCR/SAewAiFUwkpo5kLxJKwbDt+PKE8KqeTH1Tq4Kc1zQxUSI3QkHtX8uDQ=="/>
+            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.12/Amanu-0.0.12.dmg" length="8249482" type="application/octet-stream" sparkle:edSignature="ej57wSiXPvKfrv7UllDLwEIebtZd+dOTva52V1KUw4zjiqOu20y+492Zm6iA04VyFwSBdAU8yDfe/wJMPmdBAg=="/>
         </item>
     </channel>
 </rss>
