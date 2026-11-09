@@ -3,14 +3,115 @@
     <channel>
         <title>Amanu</title>
         <item>
-            <title>0.0.1</title>
-            <pubDate>Thu, 18 Jun 2026 16:43:25 -0700</pubDate>
-            <sparkle:channel>beta</sparkle:channel>
-            <sparkle:version>3</sparkle:version>
-            <sparkle:shortVersionString>0.0.1</sparkle:shortVersionString>
+            <title>0.0.13</title>
+            <pubDate>Mon, 09 Nov 2026 12:35:19 -0800</pubDate>
+            <sparkle:version>16</sparkle:version>
+            <sparkle:shortVersionString>0.0.13</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
-            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.1-beta.1/Amanu-0.0.1.dmg" length="7997496" type="application/octet-stream" sparkle:edSignature="BS6qUSElLMBjSWdg8wECoR17YxuURM35FVMhwyT5kG57kDFCEXqFlVVv6amujnxje7sqvjHrzxmOfpdR0IEACw=="/>
+            <description><![CDATA[<style>
+body { margin: 12px 16px; background: #FBF8F1; color: #221E19;
+  font: 400 13px/1.5 -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif;
+  letter-spacing: -0.01em; }
+p { margin: 0 0 8px; }
+ul { margin: 0 0 8px; padding-left: 20px; }
+li { margin: 0 0 6px; }
+li::marker { color: #6E2233; }
+a { color: #6E2233; }
+strong { font-weight: 600; }
+code { font: 400 12px "SF Mono", ui-monospace, Menlo, monospace;
+  background: #F8EEF0; border-radius: 4px; padding: 1px 4px; }
+@media (prefers-color-scheme: dark) {
+  body { background: #201C17; color: #F0EBDF; }
+  li::marker { color: #B0516B; }
+  a { color: #B0516B; }
+  code { background: rgba(176, 81, 107, 0.14); }
+}
+</style>
+<ul>
+<li>More of Settings works with VoiceOver. The choice controls (meter style, appearance, material, update channel, hotkey mode, debounce, and insertion method) now say which setting they change. The sidebar says which section is open. In Settings &gt; Refine, the Download and Remove buttons for each model are now separate controls. Hotkeys are read as key names, such as "Control Option D", instead of symbols.</li>
+<li>When a dictation cannot be inserted, VoiceOver can now reach the reason, the transcript, and the Copy button one at a time in the HUD.</li>
+<li>Small gray text, links, and the outlines of text fields and shortcut recorders are now easier to read, in both light and dark mode. They meet the WCAG contrast levels for text and controls.</li>
+<li>Accent buttons now look dimmed when they are unavailable, for example while a model downloads.</li>
+<li>The text you are dictating, the note under "Inserted.", and the transcript in an error now use the darker primary text color in the HUD, so they are easier to read over busy backgrounds.</li>
+<li>The HUD is easier to read over any wallpaper. The Ink surface is now a thicker blur, and in dark mode the HUD gets a slightly deeper warm shade, so the text, the green check, and the frozen waveform while it transcribes keep at least the WCAG contrast over both light and dark backgrounds. Glass over a light wallpaper in dark mode now looks like smoked glass.</li>
+<li>The setup window no longer flickers or settles a point off when it changes height between steps, including with Reduce Motion on.</li>
+<li>Buttons in setup and Settings now match Amanu's style: a raised warm surface with a fine outline instead of the system gray button. The Spectrum meter style now uses Amanu's oxblood colors, with a deeper pair in light mode and a lighter pair in dark mode.</li>
+<li>Setup is tidier. The window fits each step instead of leaving empty space, the Back and Continue buttons line up with the content, and if you deny microphone access the step now has an Open Microphone settings button.</li>
+<li>The dictation HUD uses less energy while you speak. The waveform meter now takes about a third of the CPU it did, with no change to how it looks.</li>
+<li>Changing the meter style in Settings now takes effect in a HUD that is already on screen. Before, the HUD could keep drawing the old meter, or show a frozen one, after the switch.</li>
+<li>VoiceOver now names every switch, menu, slider, and text field in Settings. Before, many controls read only as "switch, on" because their label sat beside them instead of being attached. Each control now speaks its row title, and the row's description as a hint.</li>
+<li>The example email address in Settings &gt; Snippets is plain text again. It showed as a clickable link by mistake.</li>
+<li>If you follow the Beta update channel, you now also get new stable releases right away. Before, you only saw them after the next beta.</li>
+<li>The dictation HUD now shows when a recording is locked. After a double-tap locks the hotkey for hands-free dictation, a small lock appears beside the meter, in the capsule, the notch, and the floating orb. VoiceOver says that the next press finishes the recording.</li>
+<li>New "Remove filler words" option in Settings &gt; Snippets. It drops "um", "uh", "er", "ah", and "hmm" from what you dictate, without using the Refine model, and tidies the commas, spaces, and capital letter around them. It never removes real words such as "like" or "you know", and it works for English only.</li>
+<li>New "Developer symbols" option in Settings &gt; Snippets. Say "my underscore variable" for my_variable, "hashtag release" for #release, "open paren x close paren" for (x), or "quote hello unquote" for a quoted word. It is off by default, and ordinary phrases like "a dash of salt" are left alone.</li>
+<li>New "All lowercase" and "Drop the final period" options in Settings &gt; Insertion, useful for chat apps and terminals. They apply to every app.</li>
+<li>Export your dictation history from Settings &gt; History. The Export menu saves the entries you see (all of them, or your search results) as plain text or JSON to a file you choose. The file is not encrypted.</li>
+<li>Amanu now releases the Refine model from memory after 10 minutes without a Refine pass, which frees about 1 to 2 GB. The next dictation that uses Refine loads it again, and Amanu starts that load when you press the hotkey. Change this in Settings &gt; Refine &gt; Memory: Never, 5, 10, or 30 minutes.</li>
+<li>Dictation into Chrome, Brave, Edge, Arc and other browsers on Chromium 155 or 156 is typed instead of pasted. Those versions can drop a paste, so Amanu used to leave the text on the clipboard there. Typing does not touch your clipboard, and it stops at once if you switch apps or a password field takes focus.</li>
+<li>Settings &gt; Insertion &gt; "Insertion method by app" has a third choice. Type sends the text as key presses. The Accessibility method that was called Type is now called Insert, and apps you set to it before keep it.</li>
+<li>Amanu now checks the character before the cursor when it adds a space before a dictation. Dictating right after a word adds a space, even on the first dictation into a field. Dictating after a space, at the start of a line, or after an opening bracket adds none. Amanu never reads password fields, terminals or password managers for this.</li>
+<li>Set a second dictation shortcut in Settings &gt; Hotkey to dictate without Refine. It works like your main hotkey: hold it, tap it twice for hands-free, or press Esc to cancel. The text arrives as transcribed, with your snippets and spoken punctuation applied. It is not set by default.</li>
+<li>If Accessibility is on in System Settings but Amanu still can't use it, the setup window now has a "Still not working? Fix it" link. It clears Amanu's old entry, and you turn Amanu on again.</li>
+<li>If the hotkey can't start even though Accessibility is on, Amanu now restarts itself once. If that does not help, the menu bar menu says so and offers "Reopen Amanu".</li>
+<li>Speaking the moment you press the hotkey no longer loses your first word. The start sound is now a quick chime of about 75 ms, and Amanu keeps everything you say after it. It used to throw away about a third of a second of audio.</li>
+<li>Letting go of the hotkey a moment early no longer cuts off your last word. Amanu keeps listening for a fifth of a second after you let go, and up to 0.6 seconds if you are still talking. The stop sound plays after that.</li>
+<li>You can start the next dictation while the last one is still being processed. Amanu starts recording right away and pastes your dictations in the order you spoke them, each into the app you started it in. Esc cancels only the dictation you are recording, never one that is already being processed.</li>
+<li>Choose your microphone in Settings &gt; Microphone, or keep following the system default. If the microphone you chose is not connected, Amanu uses the system default until it returns.</li>
+<li>AirPods and other Bluetooth headsets no longer pull dictation down to low-quality call audio. When a Bluetooth headset is your Mac's input, Amanu records from the built-in microphone instead. A Bluetooth microphone you choose by name is always used, and with the lid closed Amanu keeps the headset. Turn this off with "Avoid Bluetooth microphones". The Microphone pane shows which microphone is in use and why.</li>
+<li>Back-to-back dictations start at once and keep a word you say right as you press. Amanu keeps the microphone ready for 25 seconds after each dictation, so the orange microphone indicator stays on that long. Turn this off with "Keep microphone ready".</li>
+<li>If your microphone disconnects or stops sending audio during a dictation, Amanu now says "Microphone stopped." instead of inserting a cut-off transcript. Short audio dropouts are filled with silence, and a microphone that fails to open right after you connect it gets a few more tries.</li>
+<li>Dictation no longer loses its paste in Chrome and other browsers built on Chromium 155 or 156, which can drop a paste. Amanu skips the paste in those apps and tries direct insertion, then leaves the text on the clipboard for you to paste.</li>
+<li>Fewer skipped pastes: clipboard formats that macOS creates on its own no longer make Amanu think it cannot restore your clipboard.</li>
+<li>Pasting into virtual machines and remote desktop windows is more reliable. Amanu now presses Command as its own key event with a short pause before and after the "v".</li>
+<li>App rules can now match a website. In Settings &gt; App Rules, add a site such as claude.ai and choose its refine style; it applies in your front browser tab and its subdomains, and wins over the rule for the browser itself. Claude, ChatGPT, Gemini, Perplexity, and Copilot on the web now get Prompt automatically. Amanu reads the tab address through Accessibility when you press the hotkey, keeps only the domain, and never logs it. If a browser does not share its address (Firefox may not), the app rule applies.</li>
+<li>New update channel setting in Settings &gt; General. Choose Beta to receive early builds, or Stable (the default) for tested releases only. Switching back to Stable never downgrades your app.</li>
+<li>Tap the hotkey twice to dictate hands-free. Hold to talk works as before; a quick double tap keeps recording after you let go, and the next press inserts. On the fn key this needs System Settings &gt; Keyboard &gt; "Press globe key to" set to "Do Nothing", because macOS acts on a quick fn tap.</li>
+<li>Paste Last Dictation puts your most recent dictation at the cursor again, for text that landed in the wrong place. Press Option-Shift-V, or choose it from the menu bar menu. Change or clear the shortcut in Settings &gt; Hotkey. It will not type into a password field.</li>
+<li>The hotkey no longer stops working after sleep. macOS can turn off Amanu's key listener without notice; Amanu now checks it every few seconds and right after waking, and turns it back on.</li>
+<li>The dictation meter is now a true picture of your voice. It shows a fine row of thin lines that scroll smoothly to the left, and each line is the loudness of its own slice of time, so the same words look the same height every time you say them and a louder word is taller. The newest line on the right grows as you speak. Silence shows as a row of faint dots.</li>
+<li>The meter adjusts to your microphone during the first second you speak, then stays put for the rest of the dictation. Amanu remembers the level for each microphone, so the next dictation starts on the right scale.</li>
+<li>New setting, Settings &gt; General &gt; Other audio: quiet music and other sound while you dictate. Choose Lower volume (fades down over about a second, then back; you pick how far), Mute, or Pause music (Music and Spotify; macOS asks once for permission to control each app). It is off by default. If you change the volume yourself while dictating, Amanu leaves your setting alone, and a volume left low by a crash is restored at the next launch.</li>
+<li>A new meter style, Dots, in Settings &gt; General &gt; Meter style. Your voice moves through a fine field of ink dots from right to left, with a soft glow that lingers after each word. In silence a single row of dots breathes slowly, so you can see Amanu is listening. When you let go, the field settles and holds while Amanu transcribes. With Reduce Motion on, the field stays still. The Waveform style is unchanged and is still the default.</li>
+<li>German, Dutch, Italian, and Polish dictation no longer corrupts words in clear speech. A filter tuned for French was applied to every language written in the Latin alphabet, so "Sohn" could come out as "Lohn", "We moeten" as "W moeten", and "andato" as "amato".</li>
+<li>Better sentence breaks in Russian, Ukrainian, Polish, and Spanish. Letters such as "й" and "ó" were mistaken for question and exclamation marks.</li>
+<li>Fewer blank results on long, clearly spoken dictations.</li>
+<li>Your downloaded speech and dictionary models keep working after this update, with no new download. Amanu now pins the exact model version it downloads, so a change on the model host cannot swap it without an app update.</li>
+<li>Reinstalling no longer skips setup. The "you have seen this" flag lives in your preferences, which survive deleting the app, so a reinstall used to start a completely unconfigured Amanu with no prompting at all. Setup now opens whenever a permission it actually needs - the microphone or Accessibility - is missing, however you got there.</li>
+<li>Setup will not nag. Amanu remembers what you left unfinished when you closed the window and stays quiet about it; it comes back only if something new breaks. Closing the window - or quitting mid-setup - no longer counts as finishing it. Each time you close setup, what you declined is added to what Amanu already remembers instead of replacing it, and "Skip setup" counts as declining everything still missing.</li>
+<li>Dictation now pastes on Dvorak and other non-QWERTY layouts. Amanu used to press the key in the QWERTY "V" position, which is a different shortcut on those layouts; it now finds the key that types "v" in your current layout.</li>
+<li>Slow apps no longer paste your old clipboard instead of the dictation. Amanu now waits until it has checked the insert before it puts your clipboard back. If your clipboard holds something Amanu cannot save and put back (such as a file promise from a drag), it skips the paste instead of destroying it and shows "Paste skipped to keep your clipboard."</li>
+<li>Dictations no longer fill up clipboard managers such as Maccy, Paste, Alfred, and Raycast. The temporary clipboard writes are marked so those apps skip them.</li>
+<li>If you switch apps in the moment before the paste, Amanu no longer pastes into the app you switched to. It stops and tells you it could not reach the original app.</li>
+<li>Deleting and downloading the speech model or the vocabulary boost model again now works without relaunching Amanu.</li>
+<li>Refine with Gemma 2 2B now follows the cleanup instructions instead of replying to what you said. A very long dictation that Refine cannot finish now falls back to your raw transcript instead of losing its ending.</li>
+<li>A quick tap of the hotkey no longer shows "No audio from the microphone".</li>
+<li>Hotkey fixes: holding the key in toggle mode no longer starts and stops dictation repeatedly; using fn as a modifier (fn+Delete, fn+arrows, fn+F-keys) no longer starts a dictation; and Esc cancels even when your hotkey uses Esc with a modifier. A hotkey of Shift plus a letter is no longer accepted, because it blocked typing that capital letter everywhere; a saved Shift-only hotkey resets to fn.</li>
+<li>Spoken numbers are stricter. Separate numbers stay separate ("one, two, three" is "1, 2, 3", not "6"), years convert as years ("nineteen eighty four" is "1984"), digit strings join ("five five five one two one two" is "5551212"), and "one" stays a word in phrases like "no one" and "one of".</li>
+<li>Spoken punctuation no longer replaces ordinary words: "period" and "full stop" become punctuation only at the end of what you said or before a new sentence, so "the trial period ends" stays as spoken, and "a comma" or "the colon" stays a word.</li>
+<li>A long dictation right after another one keeps the space between them.</li>
+<li>The microphone check no longer leaves the microphone on when you close setup in the middle of it, and a check that gets cut off no longer reports "We didn't hear you".</li>
+<li>A USB microphone no longer clips during a Zoom, Teams, or FaceTime call in another app. Wired USB headsets are no longer mistaken for Bluetooth ones.</li>
+<li>The notch HUD is readable in Light Mode with the Ink material. The waveform moves at the same speed on 120 Hz and 60 Hz displays.</li>
+<li>Amanu no longer overwrites a dictionary or history file it cannot read. It keeps a backup copy next to it (named with `.unreadable-`) and starts fresh. Visiting the Dictionary pane no longer rewrites the file, and edits you make to it by hand while Amanu runs now show up.</li>
+<li>History older than your retention setting is removed while Amanu keeps running, not only when you next dictate.</li>
+<li>The trial now ends on time. It used to keep working for up to a day after expiry.</li>
+<li>A hold-to-talk recording no longer gets stuck on when macOS drops the key release. Amanu now checks the real key state every quarter second and ends the recording when the key is up.</li>
+<li>A recording that never ends (a forgotten toggle, a URL start with no stop) now finishes by itself after 10 minutes and transcribes what it captured.</li>
+<li>The microphone check no longer cuts a dictation short. While you are dictating it says to finish first, in Settings and in setup.</li>
+<li>A microphone that delivers several interleaved channels, such as some audio interfaces, no longer plays back slowed down, and Amanu no longer jumps between channels mid-sentence.</li>
+<li>When an insert fails, Copy in the HUD now gives you the final text with your snippets and spoken forms applied, not the raw transcript.</li>
+<li>"All caps." at the end of a sentence no longer capitalizes the next sentence's first word, and spoken email addresses are no longer built from long stretches of ordinary speech.</li>
+<li>Line breaks you dictate or put in a snippet survive the spoken-number and punctuation passes.</li>
+<li>Quitting right after a paste now puts your own clipboard back, and a dictionary term you just typed is saved.</li>
+<li>Dictionary edits save after a short pause in typing, not only when you press Return or leave the pane.</li>
+<li>Clearing history, or turning retention to zero, also deletes the unreadable backups of the history file.</li>
+<li>In setup, the Refine switch turns on when the cleanup model you chose finishes downloading, or when you pick one that is already downloaded, and Skip puts your previous model back.</li>
+<li>Wording: "Save crash diagnostics" (nothing is uploaded), "Trial ends in less than a day", and the Privacy pane now lists the speech, refine, and boost model downloads.</li>
+</ul>
+]]></description>
+            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.13/Amanu-0.0.13.dmg" length="16932451" type="application/octet-stream" sparkle:edSignature="Sv6Tn4N8AdV8NXs+/JACDvGHI/D3496tEXsGQ6lIrAo6k80wGxbQPS7UkOKtVDvVlp30d8MZfaxhaQepc+1xCQ=="/>
         </item>
     </channel>
 </rss>
