@@ -3,10 +3,10 @@
     <channel>
         <title>Amanu</title>
         <item>
-            <title>0.0.14</title>
-            <pubDate>Mon, 09 Nov 2026 16:10:25 -0800</pubDate>
-            <sparkle:version>17</sparkle:version>
-            <sparkle:shortVersionString>0.0.14</sparkle:shortVersionString>
+            <title>0.0.15</title>
+            <pubDate>Tue, 10 Nov 2026 00:20:21 -0800</pubDate>
+            <sparkle:version>18</sparkle:version>
+            <sparkle:shortVersionString>0.0.15</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
             <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
             <description><![CDATA[<style>
@@ -29,12 +29,47 @@ code { font: 400 12px "SF Mono", ui-monospace, Menlo, monospace;
 }
 </style>
 <ul>
-<li>Fixed dictation that was sometimes inserted twice in some apps, such as chat apps. If Amanu cannot confirm that the text arrived, it no longer inserts it a second time. The HUD says it could not confirm the text and offers Copy. Your clipboard is kept; the text goes on it only when the clipboard was empty. Amanu then uses paste for that app until the app is updated.</li>
-<li>Apps built on Electron or Chromium, such as many desktop chat apps and Chromium browsers, now receive dictation by paste from the first try.</li>
-<li>Amanu no longer runs two copies at the same time. If you open a second copy, it quits and the running Amanu opens its Settings window.</li>
+<li>Amanu now respects the macOS clipboard privacy setting for apps that read the clipboard. If Amanu is set to Ask or Deny, it no longer reads your clipboard, so dictation never brings up the system clipboard alert. It types the text instead of pasting it, and it never replaces a clipboard it cannot put back. If the text still cannot be inserted, the HUD says that clipboard access is off and offers Copy.</li>
+<li>Paste confirmation ends sooner when an app changes the pasted text, such as by formatting it, so the HUD and your restored clipboard no longer wait the full 0.7 s.</li>
+<li>In toggle mode or with a double-tap lock, the hotkey no longer needs two presses after a dictation that could not start or that stopped by itself (for example when the microphone was disconnected, the trial had ended, or an `amanu://dictate/stop` link ended it). The next press starts a new dictation.</li>
+<li>Escape with no recording in progress no longer throws away dictations that are still being transcribed.</li>
+<li>Turning dictation off, or quitting, while one dictation is being inserted and another waits no longer shows "Canceled." over text that still lands, and quitting no longer inserts a queued dictation as Amanu exits.</li>
+<li>Fixed a rare case where the microphone stayed on after a quick tap of a hold hotkey, if macOS reset the hotkey listener during the double-tap wait.</li>
+<li>Fixed a rare case where, after the app stalled, a new press of a hold hotkey right after a quick tap could end the new dictation at once.</li>
+<li>If microphone access is off, the HUD now says "Microphone access is off. Turn it on in System Settings." instead of "Microphone unavailable.", and the menu bar shows "Set up Amanu…" until access is back.</li>
+<li>If your microphone changes its sample rate or channel layout while it is open, Amanu now notices. The current dictation finishes, and the next one opens the microphone again with the new format, instead of reading it with the old settings.</li>
+<li>The audio thread does less work while you dictate. The Spectrum meter, the first-buffer log line, and the meter style check no longer run on it, and a locked microphone channel is copied directly. This lowers the chance of a dropped audio cycle under load.</li>
+<li>The menu bar no longer shows "setup incomplete" for a few seconds at each launch while the speech model loads.</li>
+<li>The recent dictations in the menu bar no longer miss the newest one when two dictations finish close together.</li>
+<li>Refine no longer makes you wait on a very long dictation it cannot finish. Before, a dictation of about 700 words or more ran the model for many seconds and then inserted the unrefined text anyway. Now Amanu inserts the unrefined text at once, also when the Refine model was unloaded after a pause, without loading it first. Short dictations also stop sooner when the model goes off track.</li>
+<li>Amanu now gives back the memory of the Refine model when it unloads the model, for example after the idle timer or when you turn Refine off. Before, about 1.7 GB stayed in use with the default model until you quit. Amanu also uses less memory while the model is loaded.</li>
+<li>Downloading a Refine model with Refine turned off no longer loads the model into memory.</li>
+<li>The Transcription settings no longer show "Downloading model" at 0% while Amanu only loads the speech model from disk, for example at launch.</li>
+<li>Deleting the speech model while it loads no longer leaves a "model unavailable" warning in the menu bar.</li>
+<li>Dictionary words are corrected more reliably on macOS 27. On some Macs, the boost model heard almost nothing, so few words in your Dictionary were fixed. Amanu now uses FluidAudio 0.18.3, which fixes this.</li>
+<li>A dictionary word that also appears inside another word (for example "sed" inside "used") can no longer change the wrong word when Amanu undoes a doubtful correction.</li>
+<li>With "Pause music" on, pausing and resuming Music and Spotify no longer freezes the HUD or the hotkey while the player answers. Music paused by Amanu now also resumes when you quit Amanu during a dictation.</li>
+<li>Fixed a rare case where a dictation ended with Escape left the volume lowered or music paused until the next dictation ended.</li>
+<li>If you start a new dictation while an earlier one is still being processed and the earlier one fails, the HUD now shows the error and its Copy button. Before, that error could be lost without a word.</li>
+<li>With the Dots meter, a new dictation started right after the previous one ended no longer shows a frozen meter.</li>
+<li>With the live transcript on, the draft line no longer goes blank for a moment when an earlier dictation finishes during a new one.</li>
+<li>In the floating orb, VoiceOver now says "Listening." at the start of every dictation, also after a very short tap.</li>
+<li>The HUD meters use less energy on Macs with a 120 Hz ProMotion display. They now draw at most 60 frames a second, at the same speed.</li>
+<li>With Reduce Motion on, the HUD no longer zooms in, drops open from the notch, or slides the floating orb open. It fades instead.</li>
+<li>The HUD's error panel can no longer be dragged away from its place by accident.</li>
+<li>On macOS 15, the Glass HUD material now has the same dark-mode contrast as Ink, so its text stays readable over light wallpapers.</li>
+<li>Fixed developer symbols: "open paren dash dash flag close paren" now gives "(--flag)", and a dash flag inside a spoken quote no longer gets a stray space.</li>
+<li>"Omit trailing period" now also works before a closing guillemet, so "«bonjour.»" loses its period like text in straight quotes.</li>
+<li>Opening Amanu again from Finder or Spotlight opens Settings again, also when the menu bar icon is hidden. On recent macOS versions it only brought Amanu forward with no window. There is now one Settings window for the menu item, Command-comma, and reopening Amanu.</li>
+<li>In Settings &gt; Hotkey, only one shortcut recorder records at a time. Starting a second one stops the first, so the dictation hotkey can no longer start a dictation while a recorder still shows "Press a key".</li>
+<li>Snippets left blank are removed when you leave the Snippets pane.</li>
+<li>The Dictionary pane opens and scrolls smoothly with a long list of terms. Its download bar now matches the one in Transcription.</li>
+<li>Fixed the cleanup model row in the setup window. It showed the download progress or failure of another model after you switched between Balanced and Best.</li>
+<li>Updates are now checked against Amanu's signature before they are unpacked, not after.</li>
+<li>Fixed a trial that could end on the first day when the Mac clock was wrong at the first launch. The trial now restarts from the correct date.</li>
 </ul>
 ]]></description>
-            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.14/Amanu-0.0.14.dmg" length="16958146" type="application/octet-stream" sparkle:edSignature="fCqL4ItmY2Mbya+uoIipov63gtw5JRDTbUDvMgetSDPGIx07OFeYlk7RHHrQ9R+Y5EI5oL8nprLJ+/7sV7pJBA=="/>
+            <enclosure url="https://github.com/dantech2000/amanu-dist/releases/download/v0.0.15/Amanu-0.0.15.dmg" length="15164029" type="application/octet-stream" sparkle:edSignature="Y1+36OcuuN23mFaFdMH5WFK/SX932YEMROzkGOVjQgWq+6Dqh35INOgekTECSm1NhnG3idjQJEcAcQduaC61DA=="/>
         </item>
     </channel>
 </rss>
